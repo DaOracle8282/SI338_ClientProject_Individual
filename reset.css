@@ -1,0 +1,11 @@
+/* reset.css
+   Shared CSS reset for our SI 338 project.
+
+   This file does NOT add custom design; it just normalizes
+   browser default styles (margins, font sizes, etc.) so our
+   pages start from the same baseline in different browsers.
+
+   For this assignment, all HTML files must link to this file.
+   When we receive an official reset from the instructors,
+   we can replace or extend this with their rules.
+*/
