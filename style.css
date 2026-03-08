@@ -1,0 +1,612 @@
+
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef3fb;
+  --text: #172033;
+  --muted: #5f6b85;
+  --accent: #123c7a;
+  --accent-2: #2d6cdf;
+  --accent-soft: #dbe8ff;
+  --border: #d4dced;
+  --success: #1f7a4d;
+  --shadow: 0 6px 18px rgba(23, 32, 51, 0.08);
+  --radius: 1rem;
+  --radius-sm: 0.75rem;
+  --max-width: 42rem;
+  --focus: 3px solid #ffbf47;
+  --font-stack: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* This is the base page */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #edf3ff 0%, #f7f9fc 35%, #f5f7fb 100%);
+  color: var(--text);
+  font-family: var(--font-stack);
+  line-height: 1.55;
+}
+
+
+
+header,
+main,
+footer {
+  width: min(100%, var(--max-width));
+  margin-inline: auto;
+}
+
+
+/* 
+   Accessible skip link for keyboard users
+   Hidden until keyboard focus*/
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 1000;
+  background: #000;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: top 0.25s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: var(--focus);
+}
+
+
+/*
+   Helps keyboard accessibility
+  */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+summary:focus {
+  outline: var(--focus);
+  outline-offset: 3px;
+}
+
+
+/* 
+   Header and navigation
+   Mobile stacked layout
+   Sticky so athlete context stays visible */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245, 247, 251, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1rem 0.75rem;
+}
+
+/* Top header info block */
+header > div:first-of-type {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+header > div:first-of-type img {
+  width: 3.75rem;
+  height: 3.75rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--surface);
+  box-shadow: var(--shadow);
+}
+
+header > div:first-of-type p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+h1 {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+
+/*
+   NAV
+   Touch-friendly stacked pills */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(18, 60, 122, 0.05);
+  transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  background: var(--accent-soft);
+  border-color: var(--accent-2);
+}
+
+nav a:active {
+  transform: scale(0.98);
+}
+
+
+/* 
+   Main content */
+main {
+  padding: 1rem;
+}
+
+main > section {
+  display: grid;
+  gap: 1rem;
+}
+
+
+/*
+   Headings */
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+h2 {
+  font-size: clamp(1.35rem, 4vw, 1.8rem);
+  margin-bottom: 0.35rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.65rem;
+}
+
+h4 {
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+
+/* 
+   Section title blocks
+   */
+#results-overview,
+#race-controls,
+#race-cards,
+#comments-heading,
+#athlete-profile {
+  scroll-margin-top: 8rem;
+}
+
+
+/* 
+   Card surfaces
+   Apply card styling to main content blocks
+    */
+aside[aria-labelledby="athlete-profile"],
+section[aria-labelledby="race-controls"],
+section[aria-labelledby="race-cards"],
+aside#comments-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+
+/* 
+   Athlete profile card
+    */
+aside[aria-labelledby="athlete-profile"] img {
+  width: 7.5rem;
+  height: 7.5rem;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  border: 4px solid var(--accent-soft);
+  box-shadow: 0 8px 20px rgba(18, 60, 122, 0.12);
+}
+
+/* Stats definition list */
+aside[aria-labelledby="athlete-profile"] dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+aside[aria-labelledby="athlete-profile"] dt {
+  font-weight: 800;
+  color: var(--muted);
+}
+
+aside[aria-labelledby="athlete-profile"] dd {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+aside[aria-labelledby="athlete-profile"] a {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+
+/*
+   Details summary
+   This is good for collapsible sections */
+details {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 0.9rem;
+}
+
+details + details {
+  margin-top: 0.6rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+summary::-webkit-details-marker {
+  margin-right: 0.4rem;
+}
+
+
+/*
+   Search form and controls */
+form,
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+fieldset {
+  display: grid;
+  gap: 1rem;
+}
+
+legend {
+  font-weight: 800;
+  margin-bottom: 0.9rem;
+  color: var(--accent);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+
+input[type="search"],
+select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  padding: 0.8rem 0.9rem;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button[type="submit"] {
+  border: 0;
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: #fff;
+  font-weight: 800;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 8px 18px rgba(45, 108, 223, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(45, 108, 223, 0.28);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+
+/* 
+   Race List
+   Remove default list styling
+  */
+section[aria-labelledby="race-cards"] ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+section[aria-labelledby="race-cards"] > ol > li {
+  margin: 0;
+  padding: 0;
+}
+
+
+/*
+   Race Cards
+   Main repeated design pattern
+   ========================= */
+section[aria-labelledby="race-cards"] article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: clip;
+  box-shadow: var(--shadow);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  animation: cardFade 0.55s ease both;
+}
+
+/* staggered entrance feel without JS */
+section[aria-labelledby="race-cards"] li:nth-child(2) article { animation-delay: 0.05s; }
+section[aria-labelledby="race-cards"] li:nth-child(3) article { animation-delay: 0.1s; }
+section[aria-labelledby="race-cards"] li:nth-child(4) article { animation-delay: 0.15s; }
+section[aria-labelledby="race-cards"] li:nth-child(5) article { animation-delay: 0.2s; }
+
+section[aria-labelledby="race-cards"] article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(23, 32, 51, 0.12);
+}
+
+/* card heading area */
+section[aria-labelledby="race-cards"] article > header {
+  padding: 1rem 1rem 0.4rem;
+}
+
+time {
+  color: var(--muted);
+  font-size: 0.93rem;
+  font-weight: 600;
+}
+
+/* race images */
+section[aria-labelledby="race-cards"] article > img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: #dfe6f4;
+}
+
+/* definition list inside race cards */
+section[aria-labelledby="race-cards"] article > dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.45rem 0.8rem;
+  padding: 1rem;
+  margin: 0;
+  background: linear-gradient(to bottom, #fff 0%, #f9fbff 100%);
+}
+
+section[aria-labelledby="race-cards"] article > dl dt {
+  font-weight: 800;
+  color: var(--muted);
+}
+
+section[aria-labelledby="race-cards"] article > dl dd {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text);
+  text-align: right;
+}
+
+/* Meet result link block */
+section[aria-labelledby="race-cards"] article > p {
+  padding: 0 1rem 1rem;
+  margin: 0;
+}
+
+section[aria-labelledby="race-cards"] article a {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+
+/* 
+   Race card details blocks
+    */
+section[aria-labelledby="race-cards"] article details {
+  margin: 0 1rem 1rem;
+}
+
+
+/* 
+   Comments panel
+    */
+#comments-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+#comments-panel li article {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem;
+}
+
+
+/* 
+   Footer
+    */
+body > footer {
+  padding: 1rem 1rem 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+
+/* 
+   Links
+    */
+a {
+  text-underline-offset: 0.15em;
+}
+
+
+/* 
+   Optional:
+   subtle badge bar on race cards
+   makes cards feel more polished
+    */
+section[aria-labelledby="race-cards"] article::before {
+  content: "";
+  display: block;
+  height: 0.3rem;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 45%, #7bb2ff 100%);
+}
+
+
+/*
+   Animations
+   Smooth and light for performance
+    */
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* 
+   Prefers Reduced Motio
+   Required for accessibility rubric
+    */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* 
+   Color Scheme: Dark
+   Required for rubric
+    */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1522;
+    --surface: #182133;
+    --surface-2: #202b40;
+    --text: #edf3ff;
+    --muted: #b2bfd8;
+    --accent: #a9c8ff;
+    --accent-2: #7db0ff;
+    --accent-soft: #21314f;
+    --border: #30415f;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --focus: 3px solid #ffd166;
+  }
+
+  body {
+    background: linear-gradient(to bottom, #0e1420 0%, #121927 100%);
+  }
+
+  .skip-link {
+    background: #fff;
+    color: #000;
+  }
+
+  button[type="submit"] {
+    color: #0f1522;
+    background: linear-gradient(135deg, #c5dcff 0%, #8bb8ff 100%);
+  }
+}
+
+
+/* 
+   Higher Contrast Support
+   Helpful extra accessibility layer
+    */
+@media (prefers-contrast: more) {
+  :root {
+    --border: #000;
+    --shadow: none;
+  }
+
+  nav a,
+  section[aria-labelledby="race-cards"] article,
+  aside[aria-labelledby="athlete-profile"],
+  section[aria-labelledby="race-controls"],
+  section[aria-labelledby="race-cards"],
+  aside#comments-panel,
+  details {
+    border-width: 2px;
+  }
+
+  a {
+    text-decoration-thickness: 0.15em;
+  }
+}
