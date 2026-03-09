@@ -67,7 +67,7 @@
         <!-- progressive disclosure for extra bio/context -->
         <details>
           <summary>More athlete details</summary>
-          <p>{{AthleteBio}}</p>
+          <p>AthleteBio</p>
         </details>
       </aside>
 
@@ -99,8 +99,8 @@
                 <option value="season">2025</option>
                 <option value="season">2024</option>
                 <option value="season">2023</option>
-                <!-- optional: specific race filters (e.g., “Conference”, “Regionals”) -->
-                {{RACE_FILTER_OPTIONS}}
+                <!-- More filter options can go here in the -->
+              
               </select>
             </div>
 
@@ -1106,8 +1106,8 @@
             </article>
           </li>
 
-              <img src="{{RacePhotoURL}}" alt="Race photo from {{RaceName}}" width="320" height="180" loading="lazy">
-
+              
+          <!-- can decide to add but dont want to hardcode
               <dl>
                 <dt>Overall place</dt>
                 <dd>{{ResultPlace}}</dd>
@@ -1116,12 +1116,14 @@
                 <dd>{{ResultTime}}</dd>
               </dl>
 
-              <p><strong>Coach note:</strong> {{CoachNote}}</p>
+              <p><strong>Coach note:</strong> {{CoachNote}}</p> -->
 
               <!-- “More” section for extra details and links -->
               <details>
                 <summary>More details</summary>
 
+                
+                 <!-- can decide to add but dont want to hardcode
                 <dl>
                   <dt>Race ID</dt>
                   <dd>{{RaceID}}</dd>
@@ -1139,7 +1141,7 @@
                   <li><a href="{{RaceOfficialResultsURL}}">Official results</a></li>
                   <li><a href="{{RaceGalleryLink}}">Race gallery</a></li>
                 </ul>
-              </details>
+              </details> -->
 
               <footer>
                 <!-- conceptual hook to open comments panel below
