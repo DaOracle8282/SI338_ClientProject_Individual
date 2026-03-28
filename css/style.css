@@ -322,6 +322,7 @@ footer a {
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
     max-width: 1000px;
+    align-items: start;
   }
 
   .profile  { grid-column: 1 / 2; }
@@ -338,17 +339,33 @@ footer a {
   }
 }
 
+
 /* ========== DESKTOP: 1024px+ ========== */
 
 @media screen and (min-width: 1024px) {
   .container {
     grid-template-columns: 320px 1fr;
     max-width: 1200px;
-    align-items: start;   /* keeps columns from stretching */
+    align-items: start;
   }
 
-  /* No position: sticky — everything scrolls naturally */
+  /* Left column — no sticky, just stacks normally */
+  .profile,
+  .controls,
+  .comments {
+    position: static;
+  }
 
+  /* Right column scrolls independently */
+  .races {
+    height: 100vh;        /* fill the viewport height */
+    overflow-y: auto;     /* only THIS column scrolls */
+    padding-right: 0.5rem;
+    position: sticky;
+    top: 0;
+  }
+
+  /* Two-column race grid on desktop */
   .race-list {
     display: grid;
     gap: 1rem;
