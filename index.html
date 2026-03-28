@@ -16,24 +16,43 @@
     <a href="#main">Skip to Main Content</a>
   </div>
 
-  <header>
-    <div class="header-top">
-      <!-- Decorative: alt="" because the athlete name is in the h1 below -->
-      <img src="images/Cover-Photo.jpg" alt="" width="70" height="70">
-      <p>Ann Arbor Skyline High School • Season 2025</p>
+ <header>
+  <div class="header-top">
+
+    <!-- School logo -->
+    <img
+      src="images/logo.jpg"
+      alt="Ann Arbor Skyline High School Eagles"
+      width="70"
+      height="70"
+      class="school-logo"
+    >
+
+    <img
+      src="images/Cover-Photo.jpg"
+      alt=""
+      class="athlete-img"
+      width="70"
+      height="70"
+    >
+
+    <div class="header-info">
+      <p>Ann Arbor Skyline High School</p>
+      <p>Cross Country • Season 2025</p>
     </div>
+  </div>
 
-    <h1>Garrett Comer</h1>
+  <h1>Garrett Comer</h1>
 
-    <nav>
-      <ul>
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#controls">Search &amp; Filter</a></li>
-        <li><a href="#races">Races</a></li>
-        <li><a href="#comments">Comments</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#controls">Search &amp; Filter</a></li>
+      <li><a href="#races">Races</a></li>
+      <li><a href="#comments">Comments</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main id="main" class="container">
 
@@ -41,10 +60,11 @@
     <section id="profile" class="card profile">
       <h2>Athlete Profile</h2>
 
-      <!-- Decorative again: name is already the section heading -->
+      
       <img src="images/Cover-Photo.jpg" alt="" width="180" height="200">
 
       <dl>
+        <p><span class="pr-badge">🏃 PR: 16:43.8</span></p>
         <dt>Grade</dt>
         <dd>11</dd>
 
@@ -244,10 +264,15 @@
 
   </main>
 
-  <footer>
-    <p>Garrett Comer – Ann Arbor Skyline High School</p>
-    <p><small>Page last updated: March 2026.</small></p>
-  </footer>
+ <footer>
+  <p>Garrett Comer – Ann Arbor Skyline Eagles Cross Country</p>
+  <p>
+    <a href="https://skyline.a2schools.org" target="_blank" rel="noopener noreferrer">
+      skyline.a2schools.org
+    </a>
+  </p>
+  <p><small>Page last updated: March 2026.</small></p>
+</footer>
 
   <!-- JS is loaded at the bottom so the DOM is ready when it runs -->
   <script src="js/main.js"></script>

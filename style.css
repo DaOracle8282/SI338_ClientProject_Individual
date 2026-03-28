@@ -1,11 +1,11 @@
-/* ========== BASE / MOBILE-FIRST STYLES ========== */
+/* ========== BASE / MOBILE-FIRST ========== */
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #f4f4f8;
+  background-color: #eaf3fb;   /* Light sky blue background — Skyline-themed */
   color: #222;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -14,7 +14,8 @@ body {
   padding: 0;
 }
 
-/* Skip link — hidden off-screen by default, slides in on focus */
+/* ========== SKIP LINK ========== */
+
 .skip a {
   background: white;
   color: black;
@@ -30,16 +31,16 @@ body {
   top: 10px;
 }
 
-/* Visible keyboard focus ring on ALL interactive elements */
 *:focus {
-  outline: 3px dashed #1b5fd1;
+  outline: 3px dashed #1a5fa8;
   outline-offset: 3px;
 }
 
 /* ========== HEADER ========== */
 
 header {
-  background-color: #e0e4f0;
+  background-color: #1a5fa8;   /* Columbia Blue — Skyline Eagles color */
+  color: white;
   padding: 1rem;
 }
 
@@ -47,10 +48,27 @@ header {
   align-items: center;
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.header-top img {
+/* School logo */
+  .school-logo {
+  display: block;
+  flex-shrink: 0;
+  height: 70px;
+  object-fit: contain;   /* keeps logo proportions — no cropping */
+  width: 70px;
+}
+
+.header-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Athlete avatar in header */
+.header-top .athlete-img {
+  border: 3px solid white;
   border-radius: 50%;
   display: block;
   height: 70px;
@@ -58,49 +76,40 @@ header {
   width: 70px;
 }
 
-header p {
-  margin: 0;
-}
-
-/* ========== TYPOGRAPHY ========== */
-
 h1 {
+  color: white;
   font-size: 2rem;
-  margin: 0 0 1rem 0;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-top: 0;
-}
-
-h3 {
-  font-size: 1.15rem;
+  margin: 0.5rem 0;
 }
 
 /* ========== NAV ========== */
 
+nav {
+  background-color: #145090;   /* Slightly darker blue for nav bar */
+  padding: 0.5rem 1rem;
+}
+
 nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav li {
-  display: inline-block;
-  margin-right: 1rem;
-}
-
 nav a {
-  color: #123c7a;
+  color: white;
   font-weight: bold;
   text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
 nav a:hover,
 nav a:focus {
-  border: 2px solid black;
-  padding: 3px 6px;
+  background-color: white;
+  color: #1a5fa8;
 }
 
 /* ========== MAIN CONTAINER (mobile: single column) ========== */
@@ -116,11 +125,22 @@ nav a:focus {
 .card,
 .race-card {
   background-color: white;
-  border: 2px solid black;
+  border: 2px solid #1a5fa8;   /* Columbia Blue border — school spirit! */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   margin-bottom: 1rem;
   padding: 1rem;
+}
+
+/* Hover scale effect — mirrors our Rick and Morty class example */
+.race-card {
+  padding: 0;
+  overflow: hidden;
+  transition: transform 0.3s;   /* smooth scale on hover — from class example */
+}
+
+.race-card:hover {
+  transform: scale(1.02);
 }
 
 .profile img,
@@ -172,7 +192,7 @@ select {
 }
 
 button[type="submit"] {
-  background-color: #123c7a;
+  background-color: #1a5fa8;
   border: none;
   border-radius: 999px;
   color: white;
@@ -183,7 +203,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover,
 button[type="submit"]:focus {
-  background-color: #2d6cdf;
+  background-color: #145090;
 }
 
 /* ========== RACE LIST ========== */
@@ -198,11 +218,6 @@ button[type="submit"]:focus {
   margin-bottom: 1rem;
 }
 
-.race-card {
-  padding: 0;
-  overflow: hidden;
-}
-
 .race-card header,
 .race-card dl,
 .race-card p {
@@ -211,7 +226,15 @@ button[type="submit"]:focus {
 }
 
 .race-card header {
-  padding-top: 1rem;
+  background-color: #1a5fa8;   /* Blue card header band — like a real athletics site */
+  color: white;
+  padding: 0.75rem 1rem;
+}
+
+.race-card header h3 {
+  color: white;
+  font-size: 1rem;
+  margin: 0 0 0.25rem 0;
 }
 
 .race-card dl {
@@ -225,14 +248,41 @@ button[type="submit"]:focus {
 }
 
 time {
-  color: #555;
-  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
 }
 
 .race-card a,
 .profile a {
-  color: #123c7a;
+  color: #1a5fa8;
   font-weight: bold;
+}
+
+/* ========== PROFILE SECTION ========== */
+
+.profile {
+  text-align: center;
+}
+
+.profile img {
+  border: 4px solid #1a5fa8;
+  border-radius: 50%;
+  height: 180px;
+  margin: 0 auto 1rem auto;
+  object-fit: cover;
+  width: 180px;
+}
+
+/* PR badge — gives the page more of an athletics feel */
+.pr-badge {
+  background-color: #1a5fa8;
+  border-radius: 999px;
+  color: white;
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  padding: 4px 14px;
 }
 
 /* ========== COMMENTS ========== */
@@ -244,7 +294,7 @@ time {
 }
 
 .comments li {
-  background-color: #f0f2fa;
+  background-color: #ddeeff;
   border-radius: 6px;
   margin-bottom: 0.75rem;
   padding: 0.75rem;
@@ -253,13 +303,18 @@ time {
 /* ========== FOOTER ========== */
 
 footer {
-  color: #555;
+  background-color: #1a5fa8;
+  color: white;
   font-size: 0.95rem;
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   text-align: center;
 }
 
-/* ========== TABLET: 768px and up ========== */
+footer a {
+  color: #cce4ff;
+}
+
+/* ========== TABLET: 768px+ ========== */
 
 @media screen and (min-width: 768px) {
   .container {
@@ -273,24 +328,17 @@ footer {
   .controls { grid-column: 1 / 2; }
   .comments { grid-column: 1 / 2; }
 
-  /* Races span the full height of the right column */
   .races {
     grid-column: 2 / 3;
     grid-row: 1 / span 3;
   }
 
   nav ul {
-    display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
-  }
-
-  nav li {
-    margin-right: 0;
   }
 }
 
-/* ========== DESKTOP: 1024px and up ========== */
+/* ========== DESKTOP: 1024px+ ========== */
 
 @media screen and (min-width: 1024px) {
   .container {
@@ -298,13 +346,12 @@ footer {
     max-width: 1200px;
   }
 
-  /* Sticky profile keeps the athlete card visible while scrolling */
   .profile {
     position: sticky;
     top: 20px;
   }
 
-  /* Two-column race grid on large screens */
+  /* Two-column race grid on desktop because this mirrors the class example grid approach */
   .race-list {
     display: grid;
     gap: 1rem;
@@ -323,7 +370,8 @@ footer {
     scroll-behavior: auto;
   }
 
-  .skip a {
+  .skip a,
+  .race-card {
     transition: none;
   }
 }
