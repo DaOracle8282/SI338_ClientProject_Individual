@@ -1,203 +1,153 @@
-
-/* 
-    Base page – mobile first
-*/
+/* ========== BASE / MOBILE-FIRST STYLES ========== */
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 18px;
-  line-height: 1.4;
   background-color: #f4f4f8;
   color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
 }
 
-/* Used to keep content centered and narrow for readability */
-main {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-/* 
-   skip link here
-   */
-
-.skip-link {
-  position: absolute;
-  top: -60px;              /* hide off-screen by default */
+/* Skip link — hidden off-screen by default, slides in on focus */
+.skip a {
+  background: white;
+  color: black;
   left: 0;
-  background: #ffffff;
-  color: #000000;
-  padding: 0.5rem 0.75rem;
-  z-index: 100;
-  text-decoration: none;
-  border: 2px solid #000;
+  padding: 6px 10px;
+  position: absolute;
+  top: -50px;
   transition: top 0.3s ease;
+  z-index: 100;
 }
 
-.skip-link:focus {
-  top: 10px;               /* slide into view when focused */
+.skip a:focus {
+  top: 10px;
 }
 
-/* 
-   global focus outline
-   */
-
+/* Visible keyboard focus ring on ALL interactive elements */
 *:focus {
-  outline: 3px solid #1b5fd1;
+  outline: 3px dashed #1b5fd1;
   outline-offset: 3px;
 }
 
-/* 
-   header and navigation
-   */
+/* ========== HEADER ========== */
 
 header {
   background-color: #e0e4f0;
-  padding: 0.75rem 1rem;
+  padding: 1rem;
 }
 
-/* header top row: logo + season text */
-header > div {
-  display: flex;
+.header-top {
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-header img {
-  width: 64px;
-  height: 64px;
+.header-top img {
   border-radius: 50%;
+  display: block;
+  height: 70px;
   object-fit: cover;
+  width: 70px;
 }
 
 header p {
   margin: 0;
-  font-size: 0.95rem;
-  color: #555;
 }
+
+/* ========== TYPOGRAPHY ========== */
 
 h1 {
-  margin: 0 0 0.75rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
 }
 
-/* Simple mobile nav: horizontal list, no bullets */
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+/* ========== NAV ========== */
+
 nav ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 nav li {
   display: inline-block;
-  margin-right: 0.75rem;
+  margin-right: 1rem;
 }
 
 nav a {
+  color: #123c7a;
+  font-weight: bold;
   text-decoration: none;
-  color: #123c7a;
-  font-weight: bold;
 }
 
-/* hover/focus state: underline and border-bottom */
 nav a:hover,
-nav a:focus,
-nav a[aria-current="page"] {
-  border-bottom: 2px solid #123c7a;
+nav a:focus {
+  border: 2px solid black;
+  padding: 3px 6px;
 }
 
-/*
-   headings and text
-   */
+/* ========== MAIN CONTAINER (mobile: single column) ========== */
 
-h2 {
-  font-size: 1.5rem;
-  margin: 1.25rem 0 0.5rem;
-}
-
-h3 {
-  font-size: 1.2rem;
-  margin: 1rem 0 0.5rem;
-}
-
-p {
-  margin: 0 0 0.75rem;
-}
-
-/* 
-   core layout for cards
-   (profile, controls, race list, comments)
-   */
-
-section[aria-labelledby="results-overview"] > aside,
-section[aria-labelledby="results-overview"] > section,
-aside#comments-panel {
-  background-color: #ffffff;
-  border: 2px solid #000;
-  border-radius: 8px;
+.container {
+  margin: 0 auto;
+  max-width: 700px;
   padding: 1rem;
-  margin: 1rem 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
-/* Make images inside cards responsive */
-section[aria-labelledby="results-overview"] img {
-  max-width: 100%;
-  height: auto;
+/* ========== CARDS ========== */
+
+.card,
+.race-card {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.profile img,
+.race-card img {
   display: block;
-  margin: 0 auto 0.75rem;
+  height: auto;
+  margin: 0 auto 1rem auto;
+  max-width: 100%;
 }
 
-/*
-   athlete profile
-   */
-
-aside[aria-labelledby="athlete-profile"] dl {
-  margin: 0 0 0.75rem;
-}
-
-aside[aria-labelledby="athlete-profile"] dt {
+.profile dt,
+.race-card dt {
   font-weight: bold;
 }
 
-aside[aria-labelledby="athlete-profile"] dd {
-  margin: 0 0 0.5rem;
+.profile dd,
+.race-card dd {
+  margin: 0 0 0.5rem 0;
 }
 
-/* Link to full athlete page */
-aside[aria-labelledby="athlete-profile"] a {
-  font-weight: bold;
-  color: #123c7a;
-}
-
-/* details/summary kept simple */
-details {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-}
-
-summary {
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* 
-   form controls - mostly search and filter
-   */
+/* ========== FORM ========== */
 
 form,
 fieldset {
   border: 0;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 fieldset {
@@ -205,159 +155,175 @@ fieldset {
   gap: 1rem;
 }
 
-legend {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
 label {
   display: block;
+  font-weight: bold;
   margin-bottom: 0.25rem;
-  font-weight: 600;
 }
 
 input[type="search"],
 select {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0.6rem 0.7rem;
   border: 1px solid #999;
   border-radius: 6px;
+  box-sizing: border-box;
   font: inherit;
+  padding: 0.6rem 0.7rem;
+  width: 100%;
 }
 
-/* Submit button */
 button[type="submit"] {
+  background-color: #123c7a;
   border: none;
   border-radius: 999px;
-  padding: 0.7rem 1rem;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #123c7a;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-weight: bold;
+  padding: 0.75rem 1rem;
 }
 
 button[type="submit"]:hover,
 button[type="submit"]:focus {
   background-color: #2d6cdf;
-  transform: translateY(-1px);
 }
 
-/*
-   Race cards list
-   */
+/* ========== RACE LIST ========== */
 
-/* Remove default list styling for race list */
-section[aria-labelledby="race-cards"] ol {
+.race-list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-/* each li just wraps an article */
-section[aria-labelledby="race-cards"] > ol > li {
-  margin: 0 0 1rem;
+.race-list li {
+  margin-bottom: 1rem;
 }
 
-/* Each race article becomes a card */
-section[aria-labelledby="race-cards"] article {
-  background-color: #ffffff;
-  border: 2px solid #000;
-  border-radius: 8px;
+.race-card {
+  padding: 0;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  padding: 0; /* inner elements handle their own padding */
 }
 
-/* race card header */
-section[aria-labelledby="race-cards"] article > header {
-  padding: 0.75rem 1rem 0.5rem;
+.race-card header,
+.race-card dl,
+.race-card p {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-/* time element styling */
+.race-card header {
+  padding-top: 1rem;
+}
+
+.race-card dl {
+  margin: 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.race-card p {
+  padding-bottom: 1rem;
+}
+
 time {
-  font-size: 0.9rem;
   color: #555;
+  font-size: 0.95rem;
 }
 
-/* race image */
-section[aria-labelledby="race-cards"] article > img {
-  width: 100%;
-  height: auto;
-  display: block;
-  background-color: #dfe6f4;
-}
-
-/* definition list inside race card */
-section[aria-labelledby="race-cards"] article > dl {
-  padding: 0.75rem 1rem;
-  margin: 0;
-}
-
-section[aria-labelledby="race-cards"] article > dl dt {
+.race-card a,
+.profile a {
+  color: #123c7a;
   font-weight: bold;
 }
 
-section[aria-labelledby="race-cards"] article > dl dd {
-  margin: 0 0 0.4rem;
-}
+/* ========== COMMENTS ========== */
 
-/* link block inside race card */
-section[aria-labelledby="race-cards"] article > p {
-  padding: 0 1rem 0.75rem;
-  margin: 0;
-}
-
-section[aria-labelledby="race-cards"] article a {
-  color: #2d6cdf;
-  font-weight: bold;
-}
-
-/* 
-   comments panel
- */
-
-#comments-panel ul {
+.comments ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-#comments-panel li article {
+.comments li {
   background-color: #f0f2fa;
   border-radius: 6px;
+  margin-bottom: 0.75rem;
   padding: 0.75rem;
 }
 
-/*
-   footer
-   */
+/* ========== FOOTER ========== */
 
-body > footer {
-  margin-top: 1.5rem;
+footer {
+  color: #555;
+  font-size: 0.95rem;
   padding: 1rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: #555;
 }
 
-/* 
-   simple animation to
-   fade-in for big cards
-   no media queries yet
- */
+/* ========== TABLET: 768px and up ========== */
 
-section[aria-labelledby="results-overview"] > aside,
-section[aria-labelledby="results-overview"] > section,
-section[aria-labelledby="race-cards"] article {
-  opacity: 1;
-  transform: translateY(0);
+@media screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+  }
+
+  .profile  { grid-column: 1 / 2; }
+  .controls { grid-column: 1 / 2; }
+  .comments { grid-column: 1 / 2; }
+
+  /* Races span the full height of the right column */
+  .races {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 3;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  nav li {
+    margin-right: 0;
+  }
 }
 
-/* Add this class in HTML (e.g., class="... is-visible")
-   once I want the element to appear */
-.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+/* ========== DESKTOP: 1024px and up ========== */
+
+@media screen and (min-width: 1024px) {
+  .container {
+    grid-template-columns: 320px 1fr;
+    max-width: 1200px;
+  }
+
+  /* Sticky profile keeps the athlete card visible while scrolling */
+  .profile {
+    position: sticky;
+    top: 20px;
+  }
+
+  /* Two-column race grid on large screens */
+  .race-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .race-list li {
+    margin-bottom: 0;
+  }
+}
+
+/* ========== REDUCED MOTION ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .skip a {
+    transition: none;
+  }
 }
