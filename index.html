@@ -7,11 +7,12 @@
 
   <!-- Real html5doctor reset stylesheet (matches class example) -->
   <link rel="stylesheet" href="css/html5reset.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css"> 
+  <!-- link js.script at the bottom of page because browsers read HTML top to bottom and pause rendering when they hit a <script> to load and run JavaScript. Placing scripts at the bottom lets the page content load first, improving speed and user experience. -->
 </head>
 <body>
 
-  <!-- Skip link: allows keyboard users to bypass navigation -->
+  <!-- Skip link: allows keyboard users to jump straight to #main without tabbing through nav -->
   <div class="skip">
     <a href="#main">Skip to Main Content</a>
   </div>
@@ -19,7 +20,7 @@
  <header>
   <div class="header-top">
 
-    <!-- School logo -->
+    <!-- contains the blue top bar with the logo, athlete photo, and name -->
     <img
       src="images/logo.jpg"
       alt="Ann Arbor Skyline High School Eagles"
@@ -44,7 +45,7 @@
 
   <h1>Garrett Comer</h1>
 
-  <nav>
+  <nav>  <!-- nav is for website navigation, not page sections; use <nav> for links that appear on every page-->
     <ul>
       <li><a href="#profile">Profile</a></li>
       <li><a href="#controls">Search &amp; Filter</a></li>
@@ -54,7 +55,7 @@
   </nav>
 </header>
 
-  <main id="main" class="container">
+  <main id="main" class="container"> <!-- entire content area -->
 
     <!-- ===== PROFILE SECTION ===== -->
     <section id="profile" class="card profile">
@@ -123,8 +124,8 @@
 
       <ol class="race-list">
 
-        <li>
-          <article class="race-card">
+        <li> <!--each individual race is an <article> because it's a self-contained piece of content that could be shared on its own; the <li> is just for the list order and styling -->
+          <article class="race-card">  
             <header>
               <h3>MITCA Michigan Meet of Champions 2025 by HOKA (Boys Elite Open #2)</h3>
               <p><time datetime="2025-11-08">Nov 8, 2025</time></p>

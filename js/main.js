@@ -1,69 +1,86 @@
-/* ============================================================
-   main.js — Garrett Comer Cross Country Results
-   Mirrors class example patterns (querySelectorAll + for loops)
-   ============================================================ */
 
-/* ===== 1. HIDE MISSING RACE IMAGES =====
-   Uses querySelectorAll + a for loop (same pattern as class example).
-   If a race image src contains "no-photo-available", hide it so
-   there is no broken or placeholder box shown to the user. */
 
-const raceImages = document.querySelectorAll(".race-image");
+   /* =========================================
+   FUNCTION 1: Hide Missing Images
+   Loops through all race images and hides any
+   image that uses the "no-photo-available" file.
+   ========================================= */
+function hideMissingImages() {
+  const raceImages = document.querySelectorAll(".race-image");
 
-for (let i = 0; i < raceImages.length; i++) {
-  if (raceImages[i].getAttribute("src").includes("no-photo-available")) {
-    raceImages[i].style.display = "none";
+  for (let i = 0; i < raceImages.length; i++) {
+    if (raceImages[i].getAttribute("src").includes("no-photo-available")) {
+      raceImages[i].style.display = "none";
+    }
   }
 }
 
 
-/* ===== 2. LIVE SEARCH FILTER =====
-   Listens for keyup on the search box and hides race cards
-   whose h3 text doesn't match the search term.
-   querySelectorAll + for loop — same structure as class example. */
+/* =========================================
+   FUNCTION 2: Live Search Filter
+   Runs every time the user types in the search box.
+   Shows only race cards whose title matches the search.
+   ========================================= */
+function searchRaces() {
+  const searchInput = document.querySelector("#race-search");
+  const query = searchInput.value.toLowerCase();
+  const raceCards = document.querySelectorAll(".race-card");
 
-const searchInput = document.querySelector("#race-search");
+  for (let i = 0; i < raceCards.length; i++) {
+    const raceName = raceCards[i].querySelector("h3").textContent.toLowerCase();
 
-if (searchInput) {
-  searchInput.addEventListener("keyup", function () {
-    const query = searchInput.value.toLowerCase();
-    const raceCards = document.querySelectorAll(".race-card");
-
-    for (let i = 0; i < raceCards.length; i++) {
-      const raceName = raceCards[i].querySelector("h3").textContent.toLowerCase();
-
-      if (raceName.includes(query)) {
-        raceCards[i].parentElement.style.display = "";   /* show the <li> */
-      } else {
-        raceCards[i].parentElement.style.display = "none"; /* hide the <li> */
-      }
+    if (raceName.includes(query)) {
+      raceCards[i].parentElement.style.display = "";   /* show the <li> */
+    } else {
+      raceCards[i].parentElement.style.display = "none"; /* hide the <li> */
     }
-  });
+  }
 }
 
 
-/* ===== 3. SEASON FILTER =====
-   When the user picks a season from the dropdown and clicks Apply,
-   only race cards matching that year's date are shown. */
+/* =========================================
+   FUNCTION 3: Season Filter
+   Runs when the user submits the filter form.
+   Displays only races from the selected year.
+   ========================================= */
+function filterRaces(event) {
+  event.preventDefault(); /* prevents page reload */
 
-const filterForm = document.querySelector("form");
+  const selectedYear = document.querySelector("#race-filter").value;
+  const raceItems = document.querySelectorAll(".race-list li");
 
-if (filterForm) {
-  filterForm.addEventListener("submit", function (event) {
-    event.preventDefault(); /* stop the page from reloading */
+  for (let i = 0; i < raceItems.length; i++) {
+    const raceDate = raceItems[i].querySelector("time").getAttribute("datetime");
 
-    const selectedYear = document.querySelector("#race-filter").value;
-    const raceItems = document.querySelectorAll(".race-list li");
-
-    for (let i = 0; i < raceItems.length; i++) {
-      const raceDate = raceItems[i].querySelector("time").getAttribute("datetime");
-
-      /* "all" shows everything; otherwise match the year in the datetime attribute */
-      if (selectedYear === "all" || raceDate.startsWith(selectedYear)) {
-        raceItems[i].style.display = "";
-      } else {
-        raceItems[i].style.display = "none";
-      }
+    if (selectedYear === "all" || raceDate.startsWith(selectedYear)) {
+      raceItems[i].style.display = "";   /* show item */
+    } else {
+      raceItems[i].style.display = "none"; /* hide item */
     }
-  });
+  }
+}
+
+
+/* =========================================
+   INITIAL SETUP
+   Runs once when the page loads
+   ========================================= */
+hideMissingImages();
+
+
+/* =========================================
+   EVENT LISTENERS
+   Connect user actions to functions
+   ========================================= */
+
+/* Listen for typing in the search box */
+const searchInput = document.querySelector("#race-search");
+if (searchInput) {
+  searchInput.addEventListener("keyup", searchRaces);
+}
+
+/* Listen for form submission (filter button) */
+const filterForm = document.querySelector("form");
+if (filterForm) {
+  filterForm.addEventListener("submit", filterRaces);
 }
