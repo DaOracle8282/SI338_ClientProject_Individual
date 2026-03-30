@@ -1,0 +1,76 @@
+/* ========== TABLET: 768px+ ========== */
+
+@media screen and (min-width: 768px) { /* Used as a guide from the grid_exercise, but adapted to fit our content and design */
+
+  .container { /* switch to a two-column grid layout for tablet and larger screens */
+    display: grid; /* use CSS Grid for layout on tablet and larger screens for better control over the placement of the profile, controls, comments, and races sections */
+    gap: 1rem; /* space between grid items */
+    grid-template-columns: 1fr 1fr; /* two equal-width columns for the left and right sides of the layout */
+    max-width: 1000px; /* maximum width for the container to prevent it from stretching too wide on large screens */
+    align-items: start; /* align items to the top of their grid areas for a more traditional layout on larger screens */
+  }
+
+  .profile  { grid-column: 1 / 2; } /* place the profile in the left column */
+  .controls { grid-column: 1 / 2; } /* place the controls in the left column, below the profile */
+  .comments { grid-column: 1 / 2; } /* place the comments in the left column, below the controls */
+
+  .races {
+    grid-column: 2 / 3; /* place the races in the right column */
+    grid-row: 1 / span 3; /* span the races section across all three rows */
+  }
+
+  nav ul {
+    gap: 1rem; /* increase gap between nav links on larger screens for better spacing */
+  }
+}
+
+
+/* ========== DESKTOP: 1024px+ ========== */
+
+@media screen and (min-width: 1024px) { /* Used as a guide from the grid_exercise, but adapted to fit our content and design */
+  .container { /* switch to a two-column grid layout for desktop screens */
+    grid-template-columns: 320px 1fr; /* fixed width for the left column and flexible width for the right column */
+    max-width: 1200px; /* maximum width for the container to prevent it from stretching too wide on large screens */
+    align-items: start; /* align items to the top of their grid areas for a more traditional layout on larger screens */
+  }
+
+  /* Left column — no sticky, just stacks normally */
+  .profile,
+  .controls,
+  .comments {
+    position: static; /* ensure left column sections don't float with parent container and aren't sticky */
+  }
+
+  /* Right column scrolls independently */
+  .races {
+    height: 100vh;        /* fill the viewport height */
+    overflow-y: auto;     /* only races scroll vertically  */
+    padding-right: 0.5rem; /* add padding for scrollbar space */
+    position: sticky; /* keep races column fixed while scrolling */
+    top: 0; /* stick to the top of the viewport */ 
+  }
+
+  /* Two-column race grid on desktop */
+  .race-list {
+    display: grid; /*  use grid layout for race cards */
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr; /* two equal-width card columns */
+  }
+
+  .race-list li {
+    margin-bottom: 0; /* remove bottom margin from race items since using grid gap for spacing */
+  }
+}
+
+/* ========== REDUCED MOTION ========== */
+
+@media (prefers-reduced-motion: reduce) { /* If the user has indicated a preference for reduced motion, disable animations and transitions for better accessibility */
+  html { /* disable smooth scrolling for users who prefer reduced motion - used grid exercise as guide to add */
+    scroll-behavior: auto; /* disable smooth scrolling for reduced motion */
+  }
+
+  .skip a,
+  .race-card {
+    transition: none; /* remove transitions for motion sensitive users */
+  }
+}

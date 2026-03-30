@@ -1,120 +1,120 @@
 /* ========== BASE / MOBILE-FIRST ========== */
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Enable smooth scrolling for in-page links - was used in grid_exercise */
 }
 
 body {
   background-color: #eaf3fb;   /* Light sky blue background — Skyline-themed */
-  color: #222;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  line-height: 1.4;
-  margin: 0;
-  padding: 0;
+  color: #222;  /* set default text color */
+  font-family: Arial, Helvetica, sans-serif;  /* used system sans-serif fonts */
+  font-size: 18px; /* base font size */
+  line-height: 1.4; /* base line height for improved readability with more line spacing */
+  margin: 0; /* remove default margin */
+  padding: 0; /* remove default padding */
 }
 
 /* ========== SKIP LINK ========== */
 
-.skip a {
-  background: white;
-  color: black;
-  left: 0;
-  padding: 6px 10px;
-  position: absolute;
-  top: -50px;
-  transition: top 0.3s ease;
-  z-index: 100;
+.skip a { /* skip link background color */
+  background: white; /* white background for skip link — stands out against the blue header */
+  color: black; /* black text for skip link */
+  left: 0; /* position at the left edge of the viewport */
+  padding: 6px 10px; /* padding for better click/tap area */
+  position: absolute; /* absolute positioning for skip link */
+  top: -50px; /* start off-screen above the viewport */
+  transition: top 0.3s ease; /* smooth transition for skip link sliding down */
+  z-index: 100; /* ensure skip link appears above other content */
 }
 
-.skip a:focus {
+.skip a:focus { /* move skip link into view when focused */
   top: 10px;
 }
 
 *:focus {
-  outline: 3px dashed #1a5fa8;
-  outline-offset: 3px;
+  outline: 3px dashed #1a5fa8; /* use high-contrast dashed outline for focus states — more visible than the default */
+  outline-offset: 3px; /* add some space between the outline and the element for better visibility */
 }
 
 /* ========== HEADER ========== */
 
 header {
-  background-color: #1a5fa8;   /* Columbia Blue — Skyline Eagles color */
-  color: white;
-  padding: 1rem;
+  background-color: #1a5fa8;   /* header background color — Columbia Blue — Skyline Eagles color */
+  color: white; /* white text for header */
+  padding: 1rem; /* padding around header content */
 }
 
-.header-top {
-  align-items: center;
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+.header-top { 
+  align-items: center; /* vertically center items in the header top */
+  display: flex; /* use flexbox for layout for header top row*/
+  gap: 1rem; /* space between items in the header top */
+  margin-bottom: 0.5rem; /* space below the header top */
 }
 
 /* School logo */
   .school-logo {
-  display: block;
-  flex-shrink: 0;
-  height: 70px;
+  display: block; /* treat logo as as block element */
+  flex-shrink: 0; /* prevent logo from shrinking */
+  height: 70px;  /* set a fixed height for the logo */
   object-fit: contain;   /* keeps logo proportions — no cropping */
-  width: 70px;
+  width: 70px; /* set a fixed width for the logo */
 }
 
 .header-info p {
-  margin: 0;
-  font-size: 0.95rem;
-  opacity: 0.9;
+  margin: 0; /* remove default margin from paragraphs in header info */
+  font-size: 0.95rem; /* slightly smaller font size for header info text */
+  opacity: 0.9; /* slightly transparent for subtext */
 }
 
 /* Athlete avatar in header */
 .header-top .athlete-img {
-  border: 3px solid white;
-  border-radius: 50%;
-  display: block;
-  height: 70px;
-  object-fit: cover;
-  width: 70px;
+  border: 3px solid white; /* white border around athlete image for contrast against header background */
+  border-radius: 50%; /* make athlete avatar circular */
+  display: block; /* block level avatar*/
+  height: 70px; /* fixed height for the athlete avatar */
+  object-fit: cover; /* crop image to fit circle */
+  width: 70px; /* fixed width for the athlete avatar */
 }
 
 h1 {
-  color: white;
-  font-size: 2rem;
-  margin: 0.5rem 0;
+  color: white; /*white heading text */
+  font-size: 2rem; /* larger font size for the main heading */
+  margin: 0.5rem 0; /* vertical spacing around heading */
 }
 
 /* ========== NAV ========== */
 
 nav {
   background-color: #145090;   /* Slightly darker blue for nav bar */
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem; /*Inner spacing for nav bar */
 }
 
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+nav ul {  /* style the nav list */
+  display: flex; /* used flexbox for horizontal layout of nav links */
+  flex-wrap: wrap; /* allow nav links to wrap on small screens */
+  gap: 0.5rem; /* space between nav links */
+  list-style: none; /* remove default list bullets */
+  margin: 0; /* remove default margin */
+  padding: 0; /* remove default padding */
 }
 
-nav a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 4px 8px;
-  border-radius: 4px;
+nav a { /* descendent selector used to style links within nav - was used in grid_exercise*/
+  color: white; /* white text for nav links */
+  font-weight: bold; /* bold font for nav links */
+  text-decoration: none; /* remove underline from nav links */
+  padding: 4px 8px; /* padding for better click/tap area */
+  border-radius: 4px; /* slightly rounded corners for nav links */
 }
 
-nav a:hover,
-nav a:focus {
-  background-color: white;
-  color: #1a5fa8;
+nav a:hover, /* hover effect to nav links for better interactivity - was used in grid_exercise */
+nav a:focus { 
+  background-color: white; /* invert background on hover/focus */
+  color: #1a5fa8; /* change text color on hover/focus */
 }
 
 /* ========== MAIN CONTAINER (mobile: single column) ========== */
 
-.container {
+.container { /* main content container - class used for page layout */
   margin: 0 auto;
   max-width: 700px;
   padding: 1rem;
@@ -123,269 +123,194 @@ nav a:focus {
 /* ========== CARDS ========== */
 
 .card,
-.race-card {
-  background-color: white;
-  border: 2px solid #1a5fa8;   /* Columbia Blue border — school spirit! */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  margin-bottom: 1rem;
-  padding: 1rem;
+.race-card { 
+  background-color: white; /* white background for cards */
+  border: 2px solid #1a5fa8;   /* Columbia Blue border */
+  border-radius: 8px; /* rounded corners for cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* subtle shadow for depth */
+  margin-bottom: 1rem; /* space below each card */
+  padding: 1rem; /* inner padding for card content */
 }
 
 /* Hover scale effect — mirrors our Rick and Morty class example */
 .race-card {
-  padding: 0;
-  overflow: hidden;
-  transition: transform 0.3s;   /* smooth scale on hover — from class example */
+  padding: 0; /* remove padding from the card itself to allow the image to fill the top area, while still having padding for the header and details below */
+  overflow: hidden; /* hide content that overflows card edges */
+  transition: transform 0.3s;   /* animate on hover  */
 }
 
 .race-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.02); /* slightly enlarge card on hover for interactivity */ 
 }
 
 .profile img,
-.race-card img {
-  display: block;
-  height: auto;
-  margin: 0 auto 1rem auto;
-  max-width: 100%;
+.race-card img { 
+  display: block; /*treat images as block elements */
+  height: auto; /* maintain aspect ratio for profile */
+  margin: 0 auto 1rem auto; /* center images and add space below */
+  max-width: 100%; /* ensure images don't exceed card width */
 }
 
-.profile dt,
-.race-card dt {
-  font-weight: bold;
+.profile dt, /* use <dt> elements for labels in the profile section and race details, and style them to stand out */
+.race-card dt { /* style the labels in the profile and race details */
+  font-weight: bold;  /* bold font for labels */
 }
 
-.profile dd,
-.race-card dd {
-  margin: 0 0 0.5rem 0;
+.profile dd, /* use <dd> elements for values in the profile section and race details, and add spacing below each item */
+.race-card dd { /* style the values in the profile and add spacing below each item */
+  margin: 0 0 0.5rem 0; /* space below each value */
 }
 
 /* ========== FORM ========== */
 
-form,
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+form, /* the form is for the search and filter controls, so we style it to look like a card for visual consistency */
+fieldset { /* use fieldset to group form controls and style it like a card for visual consistency */
+  border: 0; /* remove default border from fieldset */
+  margin: 0; /* remove default margin from form and fieldset */
+  padding: 0; /* remove default padding from form and fieldset */
 }
 
-fieldset {
-  display: grid;
-  gap: 1rem;
+fieldset { /* style the fieldset to look like a card for visual consistency with the rest of the site */
+  display: grid; /* use grid layout for form controls for better alignment and spacing */
+  gap: 1rem; /* space between form controls */
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+label { /* style labels for form controls */
+  display: block; /* make labels block elements to stack them above inputs */
+  font-weight: bold; /* bold font for labels */
+  margin-bottom: 0.25rem; /* space below labels */
 }
 
-input[type="search"],
-select {
-  border: 1px solid #999;
-  border-radius: 6px;
-  box-sizing: border-box;
-  font: inherit;
-  padding: 0.6rem 0.7rem;
-  width: 100%;
+input[type="search"], /* style the search input to be full width and visually consistent with the rest of the site */
+select { /* style the select dropdown to be full width and visually consistent with the rest of the site */
+  border: 1px solid #999; /* light gray border for inputs */
+  border-radius: 6px; /* slightly rounded corners for inputs */
+  box-sizing: border-box; /* ensure padding doesn't increase input width */
+  font: inherit; /* inherit font styles from parent for consistency */
+  padding: 0.6rem 0.7rem; /* padding for better click/tap area */
+  width: 100%; /* make inputs full width of their container */
 }
 
-button[type="submit"] {
-  background-color: #1a5fa8;
-  border: none;
-  border-radius: 999px;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 0.75rem 1rem;
+button[type="submit"] { /* style the submit button for the filter form */
+  background-color: #1a5fa8;  /* Columbia Blue background for the button */
+  border: none; /* remove default border from button */ 
+  border-radius: 999px; /* pill-shaped button for a more modern look */
+  color: white; /* white text for the button */
+  cursor: pointer; /* change cursor to pointer on hover for better interactivity */
+  font-weight: bold; /* bold font for button text */
+  padding: 0.75rem 1rem; /* padding for better click/tap area */
 }
 
-button[type="submit"]:hover,
-button[type="submit"]:focus {
-  background-color: #145090;
+button[type="submit"]:hover, /* add hover effect to the submit button for better interactivity */
+button[type="submit"]:focus { /* change background color on hover/focus for better interactivity */
+  background-color: #145090; /* darker blue on hover/focus for better interactivity */
 }
 
 /* ========== RACE LIST ========== */
 
-.race-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.race-list { /* style the race list to remove default list styling and add spacing */
+  list-style: none; /* remove default list bullets */
+  margin: 0; /* remove default margin */
+  padding: 0; /* remove default padding */
 }
 
-.race-list li {
-  margin-bottom: 1rem;
+.race-list li { /* style each race item in the list */
+  margin-bottom: 1rem; /* space below each race item */ 
 }
 
-.race-card header,
-.race-card dl,
-.race-card p {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.race-card header, /* style the header of each race card to have a blue background and white text for better visual hierarchy and consistency with the athletics theme */
+.race-card dl, /* style the details list in each race card to have spacing and clear labels/values */
+.race-card p { /* style the paragraphs in each race card to have consistent padding */  
+  padding-left: 1rem;   /* add padding to the left of the header, details, and paragraphs in the race card for better spacing and alignment */
+  padding-right: 1rem; /* add padding to the right of the header, details, and paragraphs in the race card for better spacing and alignment */
 }
 
 .race-card header {
   background-color: #1a5fa8;   /* Blue card header band — like a real athletics site */
-  color: white;
-  padding: 0.75rem 1rem;
+  color: white; /* white text for the card header */
+  padding: 0.75rem 1rem; /* padding for the card header */
 }
 
-.race-card header h3 {
-  color: white;
-  font-size: 1rem;
-  margin: 0 0 0.25rem 0;
+.race-card header h3 { /* style the race  name in the card header to be white and slightly larger for better visual hierarchy */ 
+  color: white; /* white text for the race name in the card header */
+  font-size: 1rem; /* slightly larger font size for the race name in the card header */
+  margin: 0 0 0.25rem 0; /* space below the race name in the card header */
 }
 
-.race-card dl {
-  margin: 0;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+.race-card dl { /* style the details list in each race card to have spacing and clear labels/values */
+  margin: 0; /* remove default margin from the details list */
+  padding-top: 0.5rem; /* add padding above the details list for better spacing from the header */
+  padding-bottom: 0.5rem; /* add padding below the details list for better spacing from the paragraphs below */
 }
 
-.race-card p {
-  padding-bottom: 1rem;
+.race-card p { /* style the paragraphs in each race card to have consistent padding */
+  padding-bottom: 1rem; /* add padding below paragraphs for better spacing */
 }
 
-time {
-  color: rgba(255,255,255,0.85);
-  font-size: 0.9rem;
+time { /* style the time elements in the race details for better visual hierarchy */
+  color: rgba(255,255,255,0.85); /* slightly transparent  white text for time elements in the card header for better readability against the blue background */
+  font-size: 0.9rem; /* slightly smaller font size for time elements in the card header to differentiate them from the race name and create a clear visual hierarchy */
 }
 
-.race-card a,
-.profile a {
-  color: #1a5fa8;
-  font-weight: bold;
+.race-card a, /* style links within the race cards to be the same blue as the header for visual consistency and to stand out against the white card background */
+.profile a { /* style links within the profile section to be the same blue as the header for visual consistency and to stand out against the white card background */
+  color: #1a5fa8; /* use the same blue as the header for links in the race cards and profile for visual consistency */
+  font-weight: bold; /* bold font for links in the race cards and profile for better visibility */
 }
 
 /* ========== PROFILE SECTION ========== */
 
-.profile {
-  text-align: center;
+.profile { /* style the profile section to have a white background and blue border for visual consistency with the rest of the site, and center the text for a more personal feel */
+  text-align: center; /* center text in the profile section for a more personal feel */
 }
 
-.profile img {
-  border: 4px solid #1a5fa8;
-  border-radius: 50%;
-  height: 180px;
-  margin: 0 auto 1rem auto;
-  object-fit: cover;
-  width: 180px;
+.profile img { /* style the athlete avatar in the profile section to be circular with a blue border for visual consistency with the header and athletics theme */
+  border: 4px solid #1a5fa8; /* blue border around athlete avatar for visual consistency with the header and athletics theme */
+  border-radius: 50%; /* make athlete avatar circular */
+  height: 180px; /* set a larger fixed height for the athlete avatar in the profile section  */
+  margin: 0 auto 1rem auto; /* center the athlete avatar and add margin below */
+  object-fit: cover; /* ensure the athlete avatar covers the entire area without distortion */
+  width: 180px; /* set a fixed width for the athlete avatar to match the height */
 }
 
 /* PR badge — gives the page more of an athletics feel */
 .pr-badge {
-  background-color: #1a5fa8;
-  border-radius: 999px;
-  color: white;
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  padding: 4px 14px;
+  background-color: #1a5fa8; /* blue background for the PR badge to match the header and overall color scheme */
+  border-radius: 999px; /* pill-shaped badge for a more modern and sporty look */
+  color: white; /* white text for the PR badge for contrast against the blue background */
+  display: inline-block; /* inline-block to allow for padding and background color while still flowing with text */
+  font-size: 0.85rem; /* smaller font size for the PR badge to differentiate it from the main profile text and make it look like a badge */
+  font-weight: bold; /* bold font for the PR badge to make it stand out */
+  margin-top: 0.5rem;   /* space above the PR badge to separate it from the profile text */
+  padding: 4px 14px;  /* padding for the PR badge to give it a nice shape and make the text inside comfortable to read */
 }
 
 /* ========== COMMENTS ========== */
 
-.comments ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.comments ul { /* style the comments list to remove default list styling and add spacing */
+  list-style: none; /* remove default list bullets from comments */
+  margin: 0;  /* remove default margin from comments list */
+  padding: 0; /* remove default padding from comments list */
 }
 
-.comments li {
-  background-color: #ddeeff;
-  border-radius: 6px;
-  margin-bottom: 0.75rem;
-  padding: 0.75rem;
+.comments li { /* style individual comments */
+  background-color: #ddeeff; /* light blue background for comments */
+  border-radius: 6px; /* rounded corners for comments */
+  margin-bottom: 0.75rem; /* space between comments */
+  padding: 0.75rem; /* padding inside each comment */
 }
 
 /* ========== FOOTER ========== */
 
 footer {
-  background-color: #1a5fa8;
-  color: white;
-  font-size: 0.95rem;
-  padding: 1.25rem 1rem;
-  text-align: center;
+  background-color: #1a5fa8; /* blue background for footer to match header and overall color scheme */
+  color: white; /* white text for footer for contrast against the blue background */
+  font-size: 0.95rem; /* slightly smaller font size for footer text to differentiate it from the main content and make it look more like a footer */
+  padding: 1.25rem 1rem; /* padding for footer content */
+  text-align: center; /* center text in footer for a more cohesive look */
 }
 
-footer a {
-  color: #cce4ff;
+footer a { /* style links in the footer to be white for contrast against the blue background and to match the text color of the footer for visual consistency */
+  color: #cce4ff; /* light blue color for footer links for contrast against the blue background */
 }
 
-/* ========== TABLET: 768px+ ========== */
-
-@media screen and (min-width: 768px) {
-  .container {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr;
-    max-width: 1000px;
-    align-items: start;
-  }
-
-  .profile  { grid-column: 1 / 2; }
-  .controls { grid-column: 1 / 2; }
-  .comments { grid-column: 1 / 2; }
-
-  .races {
-    grid-column: 2 / 3;
-    grid-row: 1 / span 3;
-  }
-
-  nav ul {
-    gap: 1rem;
-  }
-}
-
-
-/* ========== DESKTOP: 1024px+ ========== */
-
-@media screen and (min-width: 1024px) {
-  .container {
-    grid-template-columns: 320px 1fr;
-    max-width: 1200px;
-    align-items: start;
-  }
-
-  /* Left column — no sticky, just stacks normally */
-  .profile,
-  .controls,
-  .comments {
-    position: static;
-  }
-
-  /* Right column scrolls independently */
-  .races {
-    height: 100vh;        /* fill the viewport height */
-    overflow-y: auto;     /* only THIS column scrolls */
-    padding-right: 0.5rem;
-    position: sticky;
-    top: 0;
-  }
-
-  /* Two-column race grid on desktop */
-  .race-list {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .race-list li {
-    margin-bottom: 0;
-  }
-}
-
-/* ========== REDUCED MOTION ========== */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .skip a,
-  .race-card {
-    transition: none;
-  }
-}
